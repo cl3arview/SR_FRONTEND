@@ -1,5 +1,7 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Footer from '../components/Footer'; // Import the Footer component
 import React from 'react';
 
 
@@ -67,7 +69,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={coolTheme}>
       <CssBaseline />
-      <Component {...pageProps} />
+      <Box display="flex" flexDirection="column" minHeight="100vh">
+        <Box component="main" flexGrow={1}>
+          <Component {...pageProps} />
+        </Box>
+        <Box component="footer">
+          <Footer /> {/* This will render the Footer component */}
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
